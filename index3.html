@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <!-- <meta http-equiv="refresh" content="5">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="icon" href="./Assets/Secretaria-Geral do Exército Logo nova 22.png" type="png/icon">
+
+    <title>Informa&ccedil;&otilde;es</title>
+</head>
+
+<body>
+
+    <!-- <?php  
+
+    $localhost = '10.166.70.3';
+    $usuario   = 'joomla';
+    $senha     = 't2r0e0n6d';
+    $banco     = 'sgex';  
+    $conec      = mysql_connect($localhost,$usuario,$senha);
+    if (!$conec){ die (mysql_error()); }  
+    $banco     = mysql_select_db($banco);
+    
+    $sqlsec="select pg.sigla_pg,p.nguerra_pes
+    from pes_dados p,global_secoes s,global_postograd pg              
+    where p.cod_sec = s.codigo_sec and p.cod_pg = pg.codigo_pg and p.situacao_efetivo not in(5) 
+    and month(p.nascimento_pes)=month(now()) and day(p.nascimento_pes)=day(now()) ";
+    
+    $dados_sec = mysql_query($sqlsec) or die(mysql_error());
+     
+    $sqlsec2="select idt_pes,status  from pes_dados p  where p.idt_pes = '1010281432' or p.idt_pes = '0203334941' ";
+    
+    $num_rows = mysql_num_rows($dados_sec);
+    $dados_sec2 = mysql_query($sqlsec2) or die(mysql_error()); 
+    
+    $v_presente=$_GET['valor']; echo '<br>';  
+    //$status_sect=$_GET['status_sect'];
+    $status=$_GET['status'];    
+    $sqlupdate=mysql_query("update pes_dados set status=!($status) where idt_pes=$v_presente ");
+    //$dados_sec2 = mysql_query($sqlsec2) or die(mysql_error());                  
+    ?> -->
+
+
+
+    <header>
+        <img id="logo" src="./Assets/logo/logo.png" width="30px">
+        <h1>Secretaria-Geral do Ex&eacute;rcito</h1>
+    </header>
+
+    <section class="container">
+
+        <!-- left -->
+
+        <div class="left">
+            <div class="carrosel1">
+                <div class="carroselContainer1" id="carroselImg1" >
+                  <img class="img1" src="./Assets/carrousel1/img1.jpg" width="100%"> 
+                  <img class="img1" src="./Assets/carrousel1/img2.jpg" width="100%"> 
+                </div>
+            </div>
+        </div>
+
+        <!-- center -->
+        <div class="center">
+
+            <div class="center1">
+                <div class="dtContainer">
+                    <p class="title1">HORA E DATA:</p>
+                    <div class="dthr">
+                        <p class="horaEdata" id="hr"></p>
+                        <p class="horaEdata" id="dt"></p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="aniv">
+                <div class="anivContainer">
+
+                    <p class="title1"> ANIVERSARIANTES DO DIA: </p>
+                    <?php 
+                    if($num_rows!=0)
+                    {
+                         while($campos = mysql_fetch_array($dados_sec)) { ?>
+                    <p class="aniversariante">
+                        <? echo $campos['sigla_pg']. ' '. $campos['nguerra_pes']. '<br>'; } ?>
+                    </p>
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                    <p class="aniversariante">
+                        <? echo "N&atilde;o h&aacute; aniversariantes no dia.";} ?>
+                    </p>
+
+                </div>
+            </div>
+
+
+
+            <div class="carrosel2">
+                <div class="carroselContainer2" id="img2">
+                    <img src="./Assets/carousel2/mar23/img1.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img2.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img3.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img4.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img5.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img6.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img7.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img8.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img9.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img10.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img11.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img12.jpg" alt="" width="100%" height="100%">
+                    <img src="./Assets/carousel2/mar23/img13.jpg" alt="" width="100%" height="100%">
+                 
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="right">
+            <div class="rightContainer">
+                <div class="right1">
+                    <div class="description1">
+                        <img id="face" src="./Assets/FunPerfil/gen_Basto.jpg" alt="">
+                        <p class="chefes">Gen Div Basto</p>
+                        <p class="funcao">(Sect Ge Ex)</p>
+                        <button class="btn1">Ausente</button>
+
+
+                    </div>
+                </div>
+
+                <div class="right1">
+
+                    <div class="description1">
+                        <img id="face" src="./Assets/FunPerfil/Cel LIMA TORRES.jpg" alt="">
+                        <p class="chefes">Cel Lima Torres</p>
+                        <p class="funcao">(Ch Gab)</p>
+                        <button class="btn2">Ausente</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="right2">
+                <div class="carrosel3Container">
+                    <div class="carrosel3Container1" id="img3">
+                        <img src="./Assets/carrousel3/img1.jpg" width="100%" height="100%">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <footer>
+        <h2></h2>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
